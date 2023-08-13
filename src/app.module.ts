@@ -14,10 +14,14 @@ import { UserController } from './user/user.controller';
 import { UserModule } from './user/user.module';
 import { FavoritesController } from './favorites/favorites.controller';
 import { FavoritesModule } from './favorites/favorites.module';
+import { PasswordEncryptor } from './utils/PasswordEncryptor';
+import { IdGenerator } from './utils/IdGenerator';
+import { Validator } from './utils/Validator';
+import { EmailSystem } from './utils/EmailSystem';
 
 @Module({
   imports: [SignUpModule, LogInModule, ForgotPasswordModule, NameModule, UserModule, FavoritesModule],
   controllers: [AppController, LogInController, ForgotPasswordController, UserController, FavoritesController],
-  providers: [AppService, SignUpService, LogInService, NameService],
+  providers: [AppService, SignUpService, LogInService, NameService, PasswordEncryptor, IdGenerator, Validator, EmailSystem],
 })
 export class AppModule {}
